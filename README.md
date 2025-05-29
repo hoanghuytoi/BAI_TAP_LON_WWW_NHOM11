@@ -27,3 +27,13 @@ Khách hàng có thể dễ dàng tìm kiếm, xem chi tiết sản phẩm, đ�
 3. Cấu hình các biến môi trường (nếu có)
 4. Chạy ứng dụng: `npm start` hoặc lệnh tương ứng
 5. Truy cập website tại địa chỉ được cung cấp trên terminal
+
+## Demo
+### Đăng ký
+![Đăng ký](https://github.com/hoanghuytoi/BAI_TAP_LON_WWW_NHOM11/blob/main/demo/1.PNG)
+### Đăng nhập
+![Đăng nhập](https://github.com/hoanghuytoi/BAI_TAP_LON_WWW_NHOM11/blob/main/demo/2.PNG)
+### Giỏ hàng
+![Giỏ hàng](https://github.com/hoanghuytoi/BAI_TAP_LON_WWW_NHOM11/blob/main/demo/3.PNG)
+### Trang chủ
+![Trang chủ](https://github.com/hoanghuytoi/BAI_TAP_LON_WWW_NHOM11/blob/main/demo/4.PNG)
