@@ -7,5 +7,3 @@ public class OrderStatus {
     public static final String DELIVERED = "DELIVERED";
     public static final String CANCELLED = "CANCELLED";
 }
-  
-}

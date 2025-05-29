@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.data.domain.Sort;
 import java.io.IOException;
+import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -183,17 +184,24 @@ public class ProductController {
     @GetMapping("/images/{imageName}")
     public ResponseEntity<?> getImage(@PathVariable("imageName") String imageName) {
         try {
-            Path imagePath = Paths.get("uploads/", imageName);
-            UrlResource resource = new UrlResource(imagePath.toUri());
-            if (resource.exists()) {
-                return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(resource);
+            if (imageName.startsWith("http")) {
+                // Xử lý URL
+                return ResponseEntity.status(HttpStatus.FOUND)
+                    .location(URI.create(imageName))
+                    .build();
             } else {
-                return ResponseEntity.notFound().build();
+                // Xử lý file local
+                Path imagePath = Paths.get("uploads/", imageName);
+                UrlResource resource = new UrlResource(imagePath.toUri());
+                if (resource.exists()) {
+                    return ResponseEntity.ok()
+                        .contentType(MediaType.IMAGE_JPEG)
+                        .body(resource);
+                }
             }
-
+            return ResponseEntity.notFound().build();
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
-
         }
     }
 
