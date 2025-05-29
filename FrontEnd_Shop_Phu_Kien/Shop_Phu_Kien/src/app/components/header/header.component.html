@@ -1,0 +1,48 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+      <img src="./assets/images/ShopPhuKienLogo.png" alt="" style="width: 130px; height: 130px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/"  routerLinkActive="active"   [routerLinkActiveOptions]="{ exact: true }">Trang chủ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/notifications"  routerLinkActive="active">Thông báo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/orders"  routerLinkActive="active">
+              <i class="fas fa-shopping-cart icon"></i> Giỏ hàng
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="userResponse" >
+            <a
+              class="nav-link"
+              href="#"
+              (click)="togglePopover($event)"
+            >
+              {{ userResponse.fullname }}
+            </a>
+            <div
+              class="popover-menu"
+              *ngIf="isPopoverOpen"
+            >
+              <a  class="popover-item" (click)="handleItemClick(0)">Tài khoản của tôi</a>
+              <a  class="popover-item" (click)="handleItemClick(1)">Đơn mua</a>
+              <a class="popover-item" (click)="handleItemClick(2)">Đăng xuất</a>
+            </div>
+          </li>
+          <li class="nav-item" *ngIf="!userResponse">
+            <a class="nav-link" routerLink="/login">Đăng nhập</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

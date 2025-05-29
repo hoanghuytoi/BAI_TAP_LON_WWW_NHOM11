@@ -1,0 +1,78 @@
+<app-header> </app-header>
+
+<!-- Thông báo lỗi khi có lỗi trong việc tải đơn hàng -->
+<div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+  </div>
+  
+  <!-- Thông báo không có đơn hàng -->
+  <div *ngIf="orders.length === 0 && !loading" class="alert alert-info">
+    Không có đơn hàng nào.
+  </div>
+  
+  <!-- Danh sách đơn hàng -->
+  <div *ngIf="orders.length > 0 && !loading">
+    <div class="container">
+      <h2 class="my-4 text-center" style="color: white;">Danh sách đơn hàng</h2>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let order of orders">
+          <div class="card mb-4">
+            <div class="card-header">
+              <h5 class="card-title">Đơn hàng ID: {{ order.id }}</h5>
+            </div>
+            <div class="card-body">
+              <p><strong>Ngày tạo:</strong> {{ order.order_date | date: 'dd/MM/yyyy HH:mm' }}</p>
+              <p><strong>Tổng tiền:</strong> {{ order.total_money | currency: 'VND' }}</p>
+              <p><strong>Trạng thái:</strong> {{ order.status }}</p>
+              
+              <!-- Nút "Xem chi tiết" -->
+              <button class="btn btn-primary" (click)="toggleOrderDetails(order)">Xem chi tiết</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Chi tiết đơn hàng sẽ xuất hiện như một overlay -->
+  <div *ngIf="selectedOrder" class="order-details-overlay" (click)="toggleOrderDetails(selectedOrder)">
+    <div class="order-details-container" (click)="$event.stopPropagation()">
+      <h5 class="mb-3">Chi tiết đơn hàng ID: {{ selectedOrder.id }}</h5>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Giá</th>
+            <th>Tổng tiền</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let detail of selectedOrder.order_details; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ detail.product.name }}</td>
+            <td>{{ detail.number_of_products }}</td>
+            <td>{{ detail.price | currency: 'VND' }}</td>
+            <td>{{  detail.number_of_products * detail.price | currency: 'VND' }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>Họ tên:</strong> {{ selectedOrder.fullname }}</p>
+      <p><strong>Email:</strong> {{ selectedOrder.email }}</p>
+      <p><strong>Điện thoại:</strong> {{ selectedOrder.phone_number }}</p>
+      <p><strong>Địa chỉ giao hàng:</strong> {{ selectedOrder.address }}</p>
+      <p><strong>Phương thức thanh toán:</strong> {{ selectedOrder.payment_method }}</p>
+      <p><strong>Ngày tạo:</strong> {{ selectedOrder.order_date | date: 'dd/MM/yyyy' }}</p>
+      <p><strong>Trạng thái:</strong> {{ selectedOrder.status }}</p>
+      <p><strong>Tổng tiền:</strong> {{ selectedOrder.total_money | currency: 'VND' }}</p>
+    </div>
+  </div>
+  
+  <!-- Phần load dữ liệu -->
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Đang tải...</span>
+    </div>
+  </div>
+  <app-footer> </app-footer>

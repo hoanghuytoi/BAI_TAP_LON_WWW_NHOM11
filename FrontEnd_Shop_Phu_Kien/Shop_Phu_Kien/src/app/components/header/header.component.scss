@@ -1,0 +1,64 @@
+header {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(173, 178, 203);
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.navbar .container {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.navbar .container .navbar-brand {
+    color: rgb(173, 178, 203);
+}
+
+.navbar .container .navbar-nav .nav-link {
+    color: rgb(173, 178, 203);
+    border-radius: 18px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.navbar .container .navbar-nav .nav-link.active {
+    background-color: rgb(127, 68, 255) !important;
+    color: white !important;
+}
+
+
+/* Add this CSS to your project's stylesheet */
+
+.popover-menu {
+    position: absolute;
+    background-color: #ffffff; /* Màu nền trắng */
+    color: #333333; /* Màu chữ */
+    border: 1px solid #ddd; /* Đường viền */
+    border-radius: 5px; /* Góc bo tròn */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tạo bóng mờ */
+    padding: 10px;
+    top: calc(100% + 10px); /* Hiển thị ngay dưới nút (10px khoảng cách) */
+    left: 0;
+    z-index: 1000; /* Hiển thị phía trên các thành phần khác */
+    min-width: 200px; /* Đặt chiều rộng tối thiểu */
+  }
+  
+  .nav-item {
+    position: relative; /* Đặt relative để làm gốc cho .popover-menu */
+  }
+  
+  .popover-item {
+    display: block;
+    padding: 8px 12px; /* Căn chỉnh khoảng cách */
+    color: #333; /* Màu chữ */
+    text-decoration: none;
+  }
+  
+  .popover-item:hover {
+    background-color: #f8f9fa; /* Màu nền khi hover */
+    color: #007bff; /* Màu chữ khi hover */
+    cursor: pointer;
+  }
+  
+  

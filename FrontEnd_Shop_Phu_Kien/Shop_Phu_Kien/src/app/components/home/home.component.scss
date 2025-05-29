@@ -1,0 +1,152 @@
+.container{
+    margin-top: 40px;
+}
+
+.intro-section {
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    
+}
+
+.product-category {
+    width: 200px;
+    color: white;
+    background-color: rgb(12, 12, 55) !important;
+    border: 1px solid rgb(225, 64, 180);
+}
+
+.product-category:focus {
+    border: 1px solid rgb(225, 64, 180);
+}
+
+.search-input {
+    width: 300px;
+    background-color: rgb(19, 23, 42);
+    margin-right: 10px;
+    border: 1px solid rgb(225, 64, 180);
+    color: white;
+}
+
+.form-control {
+    background-color: transparent;
+    color: white;
+}
+
+.form-control::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    /* Firefox */
+}
+
+.form-control:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-control::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.product-item {
+    background-color: rgb(19, 23, 42);
+    border: 1px solid rgb(35, 39, 61);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.product-name {
+    color: white;
+}
+
+.product-description {
+    color: rgb(173, 178, 203);
+}
+
+.product-warranty {
+    color: rgb(242, 126, 212);
+}
+
+.product-price {
+    color: white;
+}
+
+.product-rating {
+    color: #FFD700;
+    margin-top: 10px;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.space-x {
+    margin: 0 5px;
+    /*margin-top, margin-right, margin-bottom, margin-left*/
+}
+
+.page-number {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    margin: 0 2px;
+    border-radius: 3px;
+}
+
+.page-number.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+// 
+
+.category-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.category-box {
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 16px;
+}
+
+.category-box:hover {
+  background-color: #7f44ff; /* Màu khi hover */
+  color: white;
+}
+
+.active-category {
+  background-color: #7f44ff; /* Màu khi được chọn */
+  color: white;
+  font-weight: bold;
+}
+.btn-primary{
+    margin-left: 10px;
+}

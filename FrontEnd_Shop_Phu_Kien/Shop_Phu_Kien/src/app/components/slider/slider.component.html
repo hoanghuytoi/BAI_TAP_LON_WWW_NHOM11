@@ -1,0 +1,11 @@
+<div class="slider-container">
+    <div class="slider" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+      <div class="slide" *ngFor="let image of images">
+        <img [src]="image" alt="Slide Image">
+      </div>
+    </div>
+  
+    <!-- Navigation buttons -->
+    <button class="prev" (click)="prevSlide()">❮</button>
+    <button class="next" (click)="nextSlide()">❯</button>
+  </div>
